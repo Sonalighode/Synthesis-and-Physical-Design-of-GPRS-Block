@@ -36,12 +36,12 @@ Performing the synthesis and physical design steps for the General Packet Radio 
 - Reading netlist and sdc file
   
 - Creating Core and die area
-  Providing offset of 5 for the boundaries.
+Providing offset of 5 for the boundaries.
 
   ![image](https://github.com/user-attachments/assets/f81d16e9-84dd-418e-acf3-f118ef305ba5)
 
 - Port plaement
-  Placing the ports between core area and die area with M5 and M6 layers.
+Placing the ports between core area and die area with M5 and M6 layers.
 
   ![image](https://github.com/user-attachments/assets/ecb6ddac-b1f1-4f16-a8e2-18d509664e07)
 
