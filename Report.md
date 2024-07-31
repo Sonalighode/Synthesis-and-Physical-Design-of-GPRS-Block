@@ -36,22 +36,26 @@ Performing the synthesis and physical design steps for the General Packet Radio 
 - Reading netlist and sdc file
   
 - Creating Core and die area
-Providing offset of 5 for the boundaries.
+
+  Providing offset of 5 for the boundaries.
 
   ![image](https://github.com/user-attachments/assets/f81d16e9-84dd-418e-acf3-f118ef305ba5)
 
 - Port plaement
-Placing the ports between core area and die area with M5 and M6 layers.
+
+  Placing the ports between core area and die area with M5 and M6 layers.
 
   ![image](https://github.com/user-attachments/assets/ecb6ddac-b1f1-4f16-a8e2-18d509664e07)
 
-- Macroplacement
+- Macro placement
+
   Placing the macros with 10u spacing and outer keepout margins with offset values of 1.
 
   ![image](https://github.com/user-attachments/assets/cf642214-17bd-4ec5-a5d3-72bb79506db8)
 
   
 - Power planning
+
   Creating stripes, rings, maro pin connections.
 
   ![image](https://github.com/user-attachments/assets/9a4f3b8c-8a1d-4e64-a98f-565c665063e5)
@@ -60,7 +64,57 @@ Placing the ports between core area and die area with M5 and M6 layers.
 
   ![image](https://github.com/user-attachments/assets/85fc5917-42dd-4f17-af2c-916bdda44f66)
 
-  <h3> Placement </h3>
+<h3> Placement </h3>
+
+Fixing the macros, setting the local cell density value to 0.7, setting the fanout limit to 20, setting the minimum layer as M2 and maximum as M6.
+
+Performing the coarse placement
+
+![image](https://github.com/user-attachments/assets/e85f5387-f196-4024-8fd3-5988aab09380)
+
+Legalizing the placement
+
+![image](https://github.com/user-attachments/assets/5c488165-07b8-4a6f-815c-ef0521a326c4)
+
+Optimizing the placement
+
+![image](https://github.com/user-attachments/assets/109c7cf8-997f-40ab-9c44-ee0a46070909)
+
+<h3> Clock Tree Synthesis </h3>
+
+Setting the driving clocks, target skew to 0.05, selecting the invertors and buffers, building and optimizing the clock tree and hence observing the clock tree graph.
+
+![image](https://github.com/user-attachments/assets/95b42241-c9ba-4e6a-9f36-caaa96ac5168)
+
+Global timing report
+
+![image](https://github.com/user-attachments/assets/2c61fb3e-d89e-4533-8330-2a3c6f72b65b)
+
+<h3> Routing </h3>
+
+Setting the minimum and maximum layers for routing as M2 and M6 respectively, performing the detailed routing and optimizing it.
+
+![image](https://github.com/user-attachments/assets/fcd33155-d7c9-43c6-aff4-f1b0663621b4)
+
+<h3> DRC checks </h3>
+
+![image](https://github.com/user-attachments/assets/06dc50d2-b8c4-4b56-902f-feaaba702d54)
+
+<h3> LVS checks </h3>
+
+![image](https://github.com/user-attachments/assets/d69bb59d-69fb-4aef-acba-6725e230df95)
+
+<h2> Conclusion </h2>
+
+Carried out the synthesis and physical design steps using the ICC2 tool by Synopsys successfully.
+
+
+
+
+
+
+
+
 
 
 
