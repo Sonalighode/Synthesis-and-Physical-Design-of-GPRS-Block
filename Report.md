@@ -4,6 +4,14 @@
 
 Performing the synthesis and physical design steps for the General Packet Radio Service (GPRS) block used for data seurity.
 
+- Process: 32nm (saed32)
+- Voltage: 0.95V (ss0p95v)
+- Temperature: 125°C (125c)
+
+- HVT, LVT, RVT standard cell libraries
+- Low power SRAM library
+- NDM library
+
 <h2> Synthesis </h2>
 
 - Setting the link library and target library.
@@ -32,12 +40,13 @@ Performing the synthesis and physical design steps for the General Packet Radio 
 - DRC, LVS checks
 
 <h3> Floorplanning </h3>
-
+- Setting path, setting the link and target libraries.
 - Reading netlist and sdc file
   
-- Creating Core and die area
-
-  Providing offset of 5 for the boundaries.
+- Horizontal layers : M1, M3, M5, M7, M9.
+- Vertical layers: M2, M4, M6, M8
+- Creating Core and die area, uitilisation = 0.7.
+- Providing offset of 5 for the.
 
   ![image](https://github.com/user-attachments/assets/f81d16e9-84dd-418e-acf3-f118ef305ba5)
 
@@ -56,7 +65,12 @@ Performing the synthesis and physical design steps for the General Packet Radio 
   
 - Power planning
 
-  Creating stripes, rings, maro pin connections.
+  - Removing the existing pattern
+  - Creating vss, vdd, gnd
+  - Creating rings, vias
+  - Establishing connections between maros and rings
+  - Creating power grids
+  - Connecting the standard cells to the grids
 
   ![image](https://github.com/user-attachments/assets/9a4f3b8c-8a1d-4e64-a98f-565c665063e5)
 
