@@ -4,9 +4,9 @@
 
 Performing the synthesis and physical design steps for the General Packet Radio Service (GPRS) block used for data seurity.
 
-- Process: 32nm (saed32)
-- Voltage: 0.95V (ss0p95v)
-- Temperature: 125°C (125c)
+- Process: 32nm 
+- Voltage: 0.95V
+- Temperature: 125°C 
 
 - HVT, LVT, RVT standard cell libraries
 - Low power SRAM library
@@ -90,13 +90,13 @@ Legalizing the placement
 
 ![image](https://github.com/user-attachments/assets/5c488165-07b8-4a6f-815c-ef0521a326c4)
 
-Optimizing the placement
+Analysing congestion and optimizing the placement
 
 ![image](https://github.com/user-attachments/assets/109c7cf8-997f-40ab-9c44-ee0a46070909)
 
 <h3> Clock Tree Synthesis </h3>
 
-Setting the driving clocks, target skew to 0.05, selecting the invertors and buffers, building and optimizing the clock tree and hence observing the clock tree graph.
+Setting the driving clocks, target skew to 0.05, maimum data transition to 0.2, selecting the invertors and buffers, building and optimizing the clock tree and hence observing the clock tree graph.
 
 ![image](https://github.com/user-attachments/assets/95b42241-c9ba-4e6a-9f36-caaa96ac5168)
 
