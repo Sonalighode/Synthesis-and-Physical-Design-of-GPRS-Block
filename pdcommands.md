@@ -116,3 +116,29 @@ report_global_timing
 
 save_block
 
+cd chip_top_gprs_pd
+open_lib ./outputs/works/ChipTop.nlib/
+
+create_block routing
+copy_block -from block placement_and_cts -to block routing -force
+open_block routing
+
+set_ignored_layers -min_routing_layer M2 -max_routing_layer M6
+set_app_options -name route.common.net_max_layer_mode -value hard
+set_app_options -name route.common.net_min_layer_mode -value allow_pin_connection
+
+check_routability
+
+route_auto
+
+route_opt
+
+source /home/tools/libraries/tech/milkyway/saed32nm_ant_1p9m.tcl
+
+check_routes
+
+check_lvs
+
+save_block
+
+
