@@ -69,3 +69,50 @@ set_pg_strategy_via_rule S_via_stdcellrail -via_rule {{intersection: all} {via_m
 compile_pg_strategies {S_std_cell_rail_VSS_VDD} -via_rule S_via_stdcellrail
 
 save_block -as floorplan_done
+
+cd chip_top_gps_pd
+open_lib ./outputs/works/ChipTop.nlib/
+
+create_block placement_and_cts
+copy_block -from block floorplan_done -to block placement_and_cts -force
+open_block placement_and_cts
+
+set_fixed_objects [get_flat_cells -filter "is_hard_macro"]
+set_app_options -name place.coarse.continue_on_missing_scandef -value true
+
+set_attribute [get_lib_cells TIEH_HVT] -dont_touch false
+set_attribute [get_lib_cells TIEH_HVT] -dont_use false
+
+set_app_options -name place.coarse.max_density -value 0.7
+set_app_options -name opt.common.max_fanout -value 20
+
+set_ignored_layers -min_routing_layer M2 -max_routing_layer M6
+set_app_options -name route.common.net_max_layer_mode -value hard
+set_app_options -name route.common.net_min_layer_mode -value allow_pin_connection
+
+set_app_options -name place.legalize.enable_advanced_legalizer -value true
+set_app_options -name place.legalize.legalizer_search_and_repair -value true
+
+create_placement
+legalize_placement
+place_opt -from initial_drc
+
+report_congestion -rerun_global_router
+
+refine_placement
+legalize_placement
+
+report_global_timing
+report_timing
+
+set_driving_cell -lib_cell NBUFFX8_RVT [get_ports clock]
+set_clock_tree_options -target_skew 0.05
+set_max_transition 0.2 -clock_path [get_clocks]
+set_lib_cell_purpose -include cts "/NBUFF*RVT */INVX_RVT"
+
+clock_opt
+
+report_global_timing
+
+save_block
+
